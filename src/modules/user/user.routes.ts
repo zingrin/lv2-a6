@@ -1,9 +1,9 @@
 import { Router } from "express";
-import authD from "../../middlewares/auth";
-import { userControllers } from "./users.controller";
+import authD from "../../middlewares/authD";
+import { userControllers } from "./user.controller";
 
 const router = Router();
-
+router.post("/", userControllers.createUser);
 router.get("/", authD("admin"), userControllers.getUsers);
 
 router.put(

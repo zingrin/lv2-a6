@@ -1,6 +1,24 @@
 import { Request, Response } from "express";
-import { userServices } from "./users.service";
+import { userServices } from "./user.service";
 import { JwtPayload } from "jsonwebtoken";
+const createUser = async (req: Request, res: Response) => {
+  try {
+    const payload = req.body;
+
+    const result = await userServices.createUser(payload);
+
+    if (!result.success) {
+      return res.status(400).json(result);
+    }
+
+    return res.status(201).json(result);
+  } catch (error: any) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
 
 const getUsers = async (req: Request, res: Response) => {
   try {
@@ -63,6 +81,7 @@ const deleteUser = async (req: Request, res: Response) => {
 };
 
 export const userControllers = {
+  createUser,
   getUsers,
   updateUser,
   deleteUser,

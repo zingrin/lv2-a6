@@ -25,16 +25,16 @@ const initDB = async () => {
 
     // VEHICLES TABLE
     await pool.query(`
-      CREATE TABLE IF NOT EXISTS vehicles (
-          id SERIAL PRIMARY KEY,
-          vehicle_name VARCHAR(100) NOT NULL,
-          type VARCHAR(100) NOT NULL,
-          registration_number VARCHAR(200) NOT NULL UNIQUE,
-          daily_rent_price INTEGER NOT NULL
-            CHECK(daily_rent_price > 0),
-          availability_status VARCHAR(20) DEFAULT 'available'
-            CHECK(availability_status IN ('available', 'booked'))
-        
+     CREATE TABLE IF NOT EXISTS vehicles (
+      id SERIAL PRIMARY KEY,
+      vehicle_name VARCHAR(100) NOT NULL,
+      type VARCHAR(100) NOT NULL,
+      registration_number VARCHAR(200) NOT NULL UNIQUE,
+      daily_rent_price INTEGER NOT NULL
+        CHECK(daily_rent_price > 0),
+      availability_status VARCHAR(20) DEFAULT 'available'
+        CHECK(availability_status IN ('available', 'booked'))
+  
     );
     `);
     console.log(" vehicles table ready");
