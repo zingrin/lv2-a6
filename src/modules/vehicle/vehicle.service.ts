@@ -73,7 +73,7 @@ const getVehicles = async () => {
   }
 };
 
-const getVehicleById = async (id: number) => {
+const getVehicleId = async (id: number) => {
   try {
     const result = await pool.query(
       `
@@ -105,7 +105,7 @@ const getVehicleById = async (id: number) => {
   }
 };
 
-const updateVehicleById = async (
+const updateVehicleId = async (
   id: number,
   payload: Record<string, unknown>
 ) => {
@@ -160,7 +160,7 @@ const updateVehicleById = async (
   }
 };
 
-const deleteVehicleById = async (id: number) => {
+const deleteVehicleId = async (id: number) => {
   try {
     const result = await pool.query(
       `
@@ -193,7 +193,7 @@ const deleteVehicleById = async (id: number) => {
 export const vehicleServices = {
   addVehicle,
   getVehicles,
-  getVehicleById,
-  updateVehicleById,
-  deleteVehicleById,
+  getVehicleId,
+  updateVehicleId,
+  deleteVehicleId,
 };

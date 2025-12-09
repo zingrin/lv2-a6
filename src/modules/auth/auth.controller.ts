@@ -20,16 +20,17 @@ const handleSignup = async (req: Request, res: Response) => {
 
 const handleSignin = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-
+// console.log(req.body);
   try {
     const result = await authServices.handleSignin(email, password);
-
+// console.log(result);
     if (!result.success) {
       return res.status(400).json(result);
     }
 
     return res.status(200).json(result);
   } catch (error: any) {
+    console.log("error");
     return res.status(500).json({
       success: false,
       message: error.message,
