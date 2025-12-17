@@ -3,7 +3,6 @@ import authD from "../../middlewares/authD";
 import { userControllers } from "./user.controller";
 
 const router = Router();
-router.post("/", userControllers.createUser);
 router.get("/", authD("admin"), userControllers.getUsers);
 
 router.put(

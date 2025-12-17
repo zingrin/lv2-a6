@@ -1,9 +1,7 @@
-// NO more getRentDays import. We do it inside this file.
 
 import { JwtPayload } from "jsonwebtoken";
 import { pool } from "../../db";
 
-// Local helper function inside this file ONLY
 const calculateRentDays = (start: string, end: string): number | null => {
   const s = new Date(start);
   const e = new Date(end);

@@ -39,7 +39,7 @@ const getVehicleById = async (req: Request, res: Response) => {
   const { vehicleId } = req.params;
 
   try {
-    const result = await vehicleServices.getVehicleById(Number(vehicleId));
+    const result = await vehicleServices.getVehicleId(Number(vehicleId));
 
     if (!result.success) {
       return res.status(400).json(result);
@@ -58,7 +58,7 @@ const updateVehicleById = async (req: Request, res: Response) => {
   const { vehicleId } = req.params;
 
   try {
-    const result = await vehicleServices.updateVehicleById(
+    const result = await vehicleServices.updateVehicleId(
       Number(vehicleId),
       req.body
     );
@@ -80,7 +80,7 @@ const deleteVehicleById = async (req: Request, res: Response) => {
   const { vehicleId } = req.params;
 
   try {
-    const result = await vehicleServices.deleteVehicleById(Number(vehicleId));
+    const result = await vehicleServices.deleteVehicleId(Number(vehicleId));
 
     if (!result.success) {
       return res.status(400).json(result);

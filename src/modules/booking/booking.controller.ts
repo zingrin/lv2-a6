@@ -6,16 +6,16 @@ const getUser = (req: Request) => req.user as JwtPayload | undefined;
 
 const createBooking = async (req: Request, res: Response) => {
   try {
-    const user = getUser(req);
-
-    if (!user?.id) {
+    const user = req.user as JwtPayload;
+console.log(user);
+    if (!user.id) {
       return res.status(401).json({
         success: false,
         message: "Unauthorized: Invalid user token",
       });
     }
 
-    const result = await bookingServices.createBooking(req.body, user.id);
+    const result = await bookingServices.createBooking(req.body);
 
     return res.status(result.success ? 201 : 400).json(result);
   } catch (error: any) {
@@ -83,4 +83,4 @@ export const bookingControllers = {
   createBooking,
   getBookings,
   updateBooking,
-};
+}; 
