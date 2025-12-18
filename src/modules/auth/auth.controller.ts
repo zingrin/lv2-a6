@@ -30,7 +30,7 @@ const handleSignin = async (req: Request, res: Response) => {
 
     return res.status(200).json(result);
   } catch (error: any) {
-    console.log("error");
+    // console.log("error");
     return res.status(500).json({
       success: false,
       message: error.message,

@@ -7,7 +7,7 @@ const getUser = (req: Request) => req.user as JwtPayload | undefined;
 const createBooking = async (req: Request, res: Response) => {
   try {
     const user = req.user as JwtPayload;
-console.log(user);
+// console.log(user);
     if (!user.id) {
       return res.status(401).json({
         success: false,

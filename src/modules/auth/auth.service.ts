@@ -63,7 +63,7 @@ const handleSignin = async (email: string, password: string) => {
       `,
       [email]
     );
-console.log(result);
+// console.log(result);
     if (result.rows.length === 0) {
       return {
         success: false,
